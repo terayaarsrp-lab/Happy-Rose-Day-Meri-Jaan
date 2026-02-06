@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day, My Love! 🌹</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1502479426462-87034b07974e?auto=format&fit=crop&w=1350&q=80'); /* गुलाबों वाला बैकग्राउंड */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Georgia', serif; /* थोड़ी क्लासिक फील */
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- गिरते हुए गुलाब की सेटिंग --- */
+        .rose-petal {
+            position: fixed;
+            top: -10%;
+            font-size: 25px;
+            color: #d62828; /* गहरा लाल */
+            user-select: none;
+            z-index: 1000;
+            animation: fall-rose linear infinite;
+        }
+
+        @keyframes fall-rose {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- बाकी डिज़ाइन --- */
+        .container {
+            padding: 50px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .photo-frame {
+            width: 220px;
+            height: 220px;
+            border: 6px solid #ff0000; /* लाल बॉर्डर */
+            border-radius: 50%;
+            margin: 20px auto;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        
+        h1 { font-size: 2.8rem; text-shadow: 2px 4px 10px #ff0000; margin-bottom: 15px; }
+        
+        .shayari-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 80%;
+        }
+        .shayari { font-size: 1.5rem; line-height: 1.6; font-style: italic; }
+        .footer { margin-top: 40px; font-size: 1.2rem; font-weight: bold; color: #ffb8c6; }
+    </style>
+</head>
+<body>
+
+    <div id="roses-container"></div>
+
+    <div class="container">
+        <h1>Happy Rose Day, My Dearest! 🌹</h1>
+        
+        <div class="photo-frame">
+            <img src="photo.jpg" alt="Our Beautiful Photo">
+        </div>
+
+        <div class="shayari-box">
+            <div class="shayari">
+                "नाराज़गी छोड़ो, आज तो गुलाबों का दिन है,<br>
+                मेरे प्यार, तुम्हारे बिना सब कुछ रंगहीन है। ✨<br><br>
+                हर गुलाब की पंखुड़ी में मेरा प्यार है छिपा,<br>
+                प्लीज़, आज तो मुस्कुरा दो, मेरी जान-ए-मन कृपा।" ❤️
+            </div>
+        </div>
+
+        <p style="font-size: 1.3rem; margin-top: 20px;">
+            यह लाल गुलाब सिर्फ तुम्हारे लिए है... <br>
+            क्या अब मान जाओगी? 🥺🌹
+        </p>
+
+        <div style="font-size: 2.5rem; margin-top: 20px;">
+            ❤️ 🌹 ✨ 😍 🥰 💘 💖
+        </div>
+
+        <div class="footer">— हमेशा सिर्फ तुम्हारा, [आपका नाम] —</div>
+    </div>
+
+    <script>
+        // गुलाब गिरने का इफेक्ट
+        function createRosePetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('rose-petal');
+            petal.innerHTML = '🌹'; // गुलाब का इमोजी
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 4 + 3 + 's'; // 3-7 seconds
+            petal.style.opacity = Math.random() * 0.7 + 0.3; // 0.3 से 1 के बीच ओपेसिटी
+            petal.style.fontSize = Math.random() * 25 + 15 + 'px'; // 15px से 40px
+            
+            document.getElementById('roses-container').appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 7000);
+        }
+
+        setInterval(createRosePetal, 400); // हर 400ms में एक नया गुलाब गिरेगा
+    </script>
+
+</body>
+</html>
